@@ -1,12 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar :clipped-left="clipped" fixed app>
-      <v-avatar class="mr-5">
-      <img
-        src="/blockchain-logo.png"
-        alt="John"
-      >
-    </v-avatar>
+    <v-app-bar :clipped-left="clipped" app>
       <v-toolbar-title v-text="title" />
       <v-spacer />
     </v-app-bar>
@@ -15,8 +9,8 @@
         <Nuxt />
       </v-container>
     </v-main>
-    <v-footer :absolute="!fixed">
-      <lable>Praveen | 2021</lable>
+    <v-footer class="justify-center">
+      <label class="caption">Copyrights © 2021 | Praveen</label>
     </v-footer>
   </v-app>
 </template>
