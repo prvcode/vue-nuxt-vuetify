@@ -1,8 +1,8 @@
 <template>
-  <v-row justify="center" align="center" v-if="traverse">
+  <v-row justify="center" align="center" v-if="blockchain.length">
     <v-col cols="12" sm="8" md="6">
       <v-card elevation="4" tile shaped>
-        <v-card-title>Hops</v-card-title>
+        <v-card-title>Blockchain Data</v-card-title>
         <v-card-text>
           <v-row>
               <v-col>
@@ -23,17 +23,12 @@
                     </thead>
                     <tbody>
                         <tr
-                        v-for="item in traverse"
+                        v-for="item in blockchain"
                         :key="item._id"
                         >
                         <td>{{ item.from }}</td>
                         <td>{{ item.to }}</td>
-                        <td v-if="item.values">
-                          <div v-for="(value, index) in item.values" :key="index">
-                           <span>{{ value }} </span>
-                          </div>
-                        </td>
-                        <td v-else>{{ item.value }}</td>
+                        <td>{{ item.value }}</td>
                         </tr>
                     </tbody>
                     </template>
@@ -49,11 +44,9 @@
 <script>
 export default {
   computed: {
-    traverse () {
-      return this.$store.state.blockchain.traverse
+    blockchain () {
+      return this.$store.state.blockchain.blockchain
     }
-  },
-   methods: {
   }
 }
 </script>
