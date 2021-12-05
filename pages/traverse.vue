@@ -29,6 +29,7 @@
         </v-card-text>
         <v-card-actions class="pa-5">
           <v-btn @click="traverse">Traverse</v-btn>
+          <v-btn @click="routeToHome">Home</v-btn>
         </v-card-actions>
       </v-card>
       
