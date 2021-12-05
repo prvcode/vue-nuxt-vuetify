@@ -3,9 +3,12 @@
   <v-row justify="center" align="center">
     <v-col cols="12" sm="8" md="6">
       <v-card elevation="4" tile shaped>
-        <v-card-title>
-        <v-btn class="mx-2" fab small @click="routeToHome"><v-icon> mdi-arrow-left</v-icon></v-btn> Traverse
-        </v-card-title>
+
+         <v-toolbar>
+          <v-app-bar-nav-icon  @click="routeToHome"><v-icon>mdi-arrow-left</v-icon></v-app-bar-nav-icon>
+          <v-toolbar-title>Blockchain</v-toolbar-title>
+          <v-spacer></v-spacer>
+        </v-toolbar>
         <v-card-text>
           <v-row>
               <v-col>
@@ -29,7 +32,6 @@
         </v-card-text>
         <v-card-actions class="pa-5">
           <v-btn @click="traverse">Traverse</v-btn>
-          <v-btn @click="routeToHome">Home</v-btn>
         </v-card-actions>
       </v-card>
       
@@ -46,7 +48,7 @@ export default {
   components: { ViewHops },
   data () {
     return {
-      origins: ['Arun', 'John'] ,
+      origins: [] ,
       hops:[-4,-3,-2,-1,1,2,3,4],
       searchOrigin: null,
       searchHop:null,
@@ -78,7 +80,6 @@ export default {
         origin: this.searchOrigin,
         hops: this.selectedHop
       }
-
       this.$store.dispatch('blockchain/traverse', params)
     }
   }
